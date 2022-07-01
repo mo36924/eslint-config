@@ -73,6 +73,7 @@ const config: Linter.Config = {
     "react-hooks/exhaustive-deps": "error",
     "react-hooks/rules-of-hooks": "error",
   },
+  ignorePatterns: ["**/dist/**"],
 };
 
 export default config;
