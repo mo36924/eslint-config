@@ -4,6 +4,7 @@ export default antfu(
   { stylistic: false },
   {
     rules: {
+      "unused-imports/no-unused-imports": "off",
       "import/order": ["error", { alphabetize: { order: "asc" } }],
       "ts/consistent-type-imports": ["error", { prefer: "no-type-imports" }],
       "ts/padding-line-between-statements": [
