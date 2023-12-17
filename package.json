@@ -1,23 +1,24 @@
 {
   "name": "@mo36924/eslint-config",
-  "version": "2.0.2",
+  "type": "module",
+  "version": "3.0.0",
   "description": "eslint-config",
-  "keywords": [],
+  "author": "mo36924",
+  "license": "MIT",
   "homepage": "https://github.com/mo36924/eslint-config#readme",
-  "bugs": {
-    "url": "https://github.com/mo36924/eslint-config/issues"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mo36924/eslint-config.git"
   },
-  "license": "MIT",
-  "author": "mo36924",
+  "bugs": {
+    "url": "https://github.com/mo36924/eslint-config/issues"
+  },
+  "keywords": [],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
       "default": "./dist/index.js"
     }
   },
@@ -30,144 +31,26 @@
     "build": "run-s clean lint format build:*",
     "build:rollup": "rollup -c --configPlugin typescript",
     "clean": "del dist",
-    "format": "run-s format:*",
-    "format:sort-package-json": "sort-package-json",
-    "format:prettier": "prettier --write .",
-    "lint": "eslint --ext .ts --fix .",
+    "format": "prettier --write .",
+    "lint": "eslint --fix .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "prettier": {
-    "printWidth": 120,
-    "trailingComma": "all"
+    "printWidth": 120
   },
-  "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "sourceType": "module"
-    },
-    "plugins": [
-      "eslint-plugin-import",
-      "eslint-plugin-react-hooks"
-    ],
-    "rules": {
-      "no-var": "error",
-      "padding-line-between-statements": [
-        "error",
-        {
-          "blankLine": "always",
-          "prev": "import",
-          "next": "*"
-        },
-        {
-          "blankLine": "never",
-          "prev": "import",
-          "next": "import"
-        },
-        {
-          "blankLine": "always",
-          "prev": "*",
-          "next": "export"
-        },
-        {
-          "blankLine": "any",
-          "prev": "export",
-          "next": "export"
-        },
-        {
-          "blankLine": "always",
-          "prev": "*",
-          "next": [
-            "class",
-            "function",
-            "block",
-            "block-like",
-            "multiline-expression",
-            "multiline-const",
-            "multiline-let"
-          ]
-        },
-        {
-          "blankLine": "always",
-          "prev": [
-            "class",
-            "function",
-            "block",
-            "block-like",
-            "multiline-expression",
-            "multiline-const",
-            "multiline-let"
-          ],
-          "next": "*"
-        },
-        {
-          "blankLine": "never",
-          "prev": "*",
-          "next": [
-            "case",
-            "default"
-          ]
-        },
-        {
-          "blankLine": "never",
-          "prev": [
-            "case",
-            "default"
-          ],
-          "next": "*"
-        }
-      ],
-      "sort-imports": [
-        "error",
-        {
-          "ignoreDeclarationSort": true
-        }
-      ],
-      "import/no-absolute-path": "error",
-      "import/no-dynamic-require": "error",
-      "import/no-self-import": "error",
-      "import/no-useless-path-segments": "error",
-      "import/order": [
-        "error",
-        {
-          "groups": [
-            "builtin",
-            "external",
-            "parent",
-            "sibling",
-            "index"
-          ],
-          "alphabetize": {
-            "order": "asc"
-          }
-        }
-      ],
-      "react-hooks/exhaustive-deps": "error",
-      "react-hooks/rules-of-hooks": "error"
-    },
-    "ignorePatterns": [
-      "**/dist/**"
-    ]
+  "dependencies": {
+    "@antfu/eslint-config": "^2.4.6"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^8.3.2",
-    "@types/eslint": "^8.4.2",
-    "@typescript-eslint/parser": "^5.26.0",
-    "del-cli": "^4.0.1",
-    "eslint": "^8.16.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-react-hooks": "^4.5.0",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "del-cli": "^5.1.0",
+    "eslint": "^8.56.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.6.2",
-    "rollup": "^2.75.0",
-    "rollup-plugin-dts": "^4.2.2",
-    "sort-package-json": "^1.57.0",
-    "typescript": "^4.7.2"
-  },
-  "peerDependencies": {
-    "@typescript-eslint/parser": ">=5.0.0",
-    "eslint": ">=8.0.0",
-    "eslint-plugin-import": ">=2.0.0",
-    "eslint-plugin-react-hooks": ">=4.0.0"
+    "prettier": "^3.1.1",
+    "rollup": "^4.9.1",
+    "rollup-plugin-dts": "^6.1.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3"
   },
   "publishConfig": {
     "access": "public"

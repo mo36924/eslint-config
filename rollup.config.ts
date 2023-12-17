@@ -6,9 +6,10 @@ export default defineConfig([
   {
     input: "src/index.ts",
     output: [
-      { file: "dist/index.mjs", sourcemap: true },
-      { file: "dist/index.js", sourcemap: true, format: "commonjs", exports: "auto" },
+      { file: "dist/index.js", sourcemap: true },
+      { file: "dist/index.cjs", sourcemap: true, format: "commonjs", exports: "auto" },
     ],
+    external: /^[@\w]/,
     plugins: [typescript()],
   },
   {
