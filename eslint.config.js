@@ -1,5 +1,6 @@
 import { antfu } from "@antfu/eslint-config";
 
+/** @type { Promise<import("eslint").Linter.FlatConfig[]> } */
 export default antfu(
   { stylistic: false },
   {
