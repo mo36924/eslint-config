@@ -8,6 +8,7 @@ export default antfu(
       "unused-imports/no-unused-imports": "off",
       "import/order": ["error", { alphabetize: { order: "asc" } }],
       "ts/consistent-type-imports": ["error", { prefer: "no-type-imports" }],
+      "ts/consistent-type-definitions": ["error", "type"],
       "ts/padding-line-between-statements": [
         "error",
         {
